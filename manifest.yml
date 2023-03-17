@@ -1,0 +1,13 @@
+---
+applications:
+- name: realtimenews
+  memory: 1024M
+  instances: 1
+  path: target/RealTimeNews-0.0.1.jar
+  buildpacks: 
+    - https://github.com/cloudfoundry/java-buildpack.git#v4.43
+  routes:
+    - route: realtimenews-i807056.cfapps.us10.hana.ondemand.com
+  env:
+    JBP_CONFIG_COMPONENTS: '{jres: ["JavaBuildpack::Jre::SapMachineJRE"]}'
+    JBP_CONFIG_SAP_MACHINE_JRE: "{ jre: { version: 11.0.10_+ } }"
